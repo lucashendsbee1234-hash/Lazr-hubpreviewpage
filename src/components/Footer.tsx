@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
       {/* LazrHub Footer Brand */}
       <div className="flex items-center justify-center gap-2 mb-4">
         <img
-          src="/lazrhub-logo.jpg"
+          src="https://res.cloudinary.com/oeweu9pq/image/upload/v1785275548/lazrhub-logo_dfkql7.jpg"
           alt="LazrHub Logo"
           className="w-8 h-8 rounded-xl object-cover border border-purple-500/30 shadow-[0_0_12px_rgba(168,85,247,0.3)]"
         />

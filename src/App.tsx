@@ -121,7 +121,7 @@ export default function App() {
           {/* LazrHub Brand Pill with Embedded Logo */}
           <div className="relative inline-flex items-center gap-3.5 px-5 py-2.5 rounded-full glass-panel border border-purple-500/40 shadow-[0_0_30px_rgba(168,85,247,0.3)] hover:border-purple-400/60 transition-all">
             <img
-              src="/lazrhub-logo.jpg"
+              src="https://res.cloudinary.com/oeweu9pq/image/upload/v1785275548/lazrhub-logo_dfkql7.jpg"
               alt="LazrHub Logo"
               className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl object-cover border border-purple-400/50 shadow-[0_0_15px_rgba(168,85,247,0.5)]"
             />

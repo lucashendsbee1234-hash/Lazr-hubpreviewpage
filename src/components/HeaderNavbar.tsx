@@ -18,7 +18,7 @@ export const HeaderNavbar: React.FC<HeaderNavbarProps> = ({
       <div className="flex items-center gap-3">
         <div className="relative group flex items-center justify-center p-[1px] rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-blue-500 shadow-[0_0_20px_rgba(168,85,247,0.4)]">
           <img
-            src="/lazrhub-logo.jpg"
+            src="https://res.cloudinary.com/oeweu9pq/image/upload/v1785275548/lazrhub-logo_dfkql7.jpg"
             alt="LazrHub Logo"
             className="w-10 h-10 sm:w-11 sm:h-11 rounded-[15px] object-cover transition-transform group-hover:scale-105"
           />

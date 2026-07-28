@@ -85,7 +85,7 @@ export const NotificationModal: React.FC<NotificationModalProps> = ({ isOpen, on
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <img
-                  src="/lazrhub-logo.jpg"
+                  src="https://res.cloudinary.com/oeweu9pq/image/upload/v1785275548/lazrhub-logo_dfkql7.jpg"
                   alt="LazrHub Logo"
                   className="w-12 h-12 rounded-2xl object-cover border border-purple-400/40 shadow-[0_0_15px_rgba(168,85,247,0.4)] shrink-0"
                 />
