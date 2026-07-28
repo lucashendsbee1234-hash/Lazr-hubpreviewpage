@@ -128,18 +128,28 @@ export default function App() {
         >
           {/* Gentle animated glow behind logo */}
 
-         <div className="absolute -inset-4 bg-gradient-to-r from-purple-600/30 via-indigo-500/20 to-blue-500/30 rounded-full blur-2xl animate-pulse-glow pointer-events-none" /> 
-          <div className="relative inline-flex items-center gap-3 px-6 py-2.5 rounded-full glass-panel border border-purple-500/30 shadow-[0_0_30px_rgba(168,85,247,0.2)]"> 
-            <img 
-              src="https://res.cloudinary.com/oeweu9pq/image/upload/v1785039062/ChatGPT_Image_Jul_24_2026_05_33_27_PM_bmmkca.png" 
-              alt="LazrHub Logo" 
-              className="w-8 h-8 sm:w-10 sm:h-10 object-contain animate-bounce mix-blend-screen"
-            /> 
-            <span className="font-extrabold text-2xl sm:text-4xl tracking-tight text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.3)]"> 
-              LazrHub 
-            </span> 
-          </div> 
-          </motion.div>
+{/* Brand Logo Container */}
+<div className="flex items-center gap-3">
+  <div className="relative group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-blue-500 p-[1px] shadow-[0_0_20px_rgba(168,85,247,0.4)]">
+    <div className="w-full h-full bg-[#0b0b0b] rounded-[15px] flex items-center justify-center p-1 group-hover:bg-purple-950/40 transition-colors">
+      <img 
+        src="https://res.cloudinary.com/oeweu9pq/image/upload/v1785272204/suyzesrdwvpb3yjfphzb.jpg" 
+        alt="LazrHub Logo" 
+        className="w-full h-full object-contain"
+      />
+    </div>
+  </div>
+  <div>
+    <span className="font-extrabold text-xl sm:text-2xl tracking-wider text-white">
+      Lazr<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400">Hub</span>
+    </span>
+    <div className="flex items-center gap-1.5 text-[10px] font-semibold tracking-widest text-purple-300 uppercase">
+      <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+      Gaming Platform
+    </div>
+  </div>
+</div>
+
 
 
         {/* Heading: # Coming Soon */}
