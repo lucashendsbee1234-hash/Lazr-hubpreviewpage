@@ -4,7 +4,6 @@ import { Sparkles, Calendar, Clock, Bell, Rocket, RefreshCw, Volume2, VolumeX } 
 import { ParticleCanvas } from './components/ParticleCanvas';
 import { CountdownCard } from './components/CountdownCard';
 import { FeatureList } from './components/FeatureList';
-import { LiveStateBanner } from './components/LiveStateBanner';
 import { NotificationModal } from './components/NotificationModal';
 import { HeaderNavbar } from './components/HeaderNavbar';
 import { Footer } from './components/Footer';
