@@ -155,7 +155,7 @@ export default function App() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-4 sm:mt-6 text-base sm:text-xl text-slate-300 max-w-2xl font-medium space-y-1"
         >
-          <p className="text-slate-400">The next version of LazrHub launches on</p>
+          <p className="text-slate-400">LazrHubs best version releases on</p>
           <p className="text-lg sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-indigo-200 to-blue-300 drop-shadow-[0_0_15px_rgba(168,85,247,0.4)] flex items-center justify-center gap-2">
             <Calendar className="w-5 h-5 text-purple-400 inline" />
             <span>August 11 at 6:00 PM</span>
