@@ -133,7 +133,7 @@ export default function App() {
             <img 
               src="https://res.cloudinary.com/oeweu9pq/image/upload/v1785039062/ChatGPT_Image_Jul_24_2026_05_33_27_PM_bmmkca.png" 
               alt="LazrHub Logo" 
-              className="w-8 h-8 sm:w-10 sm:h-10 object-contain animate-bounce"
+              className="w-8 h-8 sm:w-10 sm:h-10 object-contain animate-bounce mix-blend-screen"
             /> 
             <span className="font-extrabold text-2xl sm:text-4xl tracking-tight text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.3)]"> 
               LazrHub 
