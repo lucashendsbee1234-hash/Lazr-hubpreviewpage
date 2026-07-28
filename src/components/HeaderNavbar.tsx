@@ -18,23 +18,28 @@ export const HeaderNavbar: React.FC<HeaderNavbarProps> = ({
 }) => {
   return (
     <header className="relative z-20 w-full max-w-7xl mx-auto px-4 py-4 sm:py-6 flex items-center justify-between">
-      {/* Brand Logo */}
-      <div className="flex items-center gap-3">
-        <div className="relative group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-blue-500 p-[1px] shadow-[0_0_20px_rgba(168,85,247,0.4)]">
-          <div className="w-full h-full bg-[#0b0b0b] rounded-[15px] flex items-center justify-center text-xl sm:text-2xl group-hover:bg-purple-950/40 transition-colors">
-            🚀
-          </div>
-        </div>
-        <div>
-          <span className="font-extrabold text-xl sm:text-2xl tracking-wider text-white">
-            Lazr<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400">Hub</span>
-          </span>
-          <div className="flex items-center gap-1.5 text-[10px] font-semibold tracking-widest text-purple-300 uppercase">
-            <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
-            Gaming Platform
-          </div>
-        </div>
-      </div>
+     {/* Brand Logo */}
+<div className="flex items-center gap-3">
+  <div className="relative group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-blue-500 p-[1px] shadow-[0_0_20px_rgba(168,85,247,0.4)]">
+    <div className="w-full h-full bg-[#0b0b0b] rounded-[15px] flex items-center justify-center text-xl sm:text-2xl group-hover:bg-purple-950/40 transition-colors overflow-hidden">
+      <img 
+        src="https://res.cloudinary.com/oeweu9pq/image/upload/v1785039062/ChatGPT_Image_Jul_24_2026_05_33_27_PM_bmmkca.png" 
+        alt="LazrHub Logo" 
+        className="w-full h-full object-cover rounded-[15px]"
+      />
+    </div>
+  </div>
+  <div>
+    <span className="font-extrabold text-xl sm:text-2xl tracking-wider text-white">
+      Lazr<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400">Hub</span>
+    </span>
+    <div className="flex items-center gap-1.5 text-[10px] font-semibold tracking-widest text-purple-300 uppercase">
+      <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+      Gaming Platform
+    </div>
+  </div>
+</div>
+
 
       {/* Right Controls */}
       <div className="flex items-center gap-2 sm:gap-3">
