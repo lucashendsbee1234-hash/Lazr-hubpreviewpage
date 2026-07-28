@@ -127,31 +127,25 @@ export default function App() {
           className="relative mb-6"
         >
           {/* Gentle animated glow behind logo */}
-
-{/* Brand Logo Container */}
-<div className="flex items-center gap-3">
-  <div className="relative group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-blue-500 p-[1px] shadow-[0_0_20px_rgba(168,85,247,0.4)]">
-    <div className="w-full h-full bg-[#0b0b0b] rounded-[15px] flex items-center justify-center p-1 group-hover:bg-purple-950/40 transition-colors">
-      <img 
-        src="https://res.cloudinary.com/oeweu9pq/image/upload/v1785272204/suyzesrdwvpb3yjfphzb.jpg" 
-        alt="LazrHub Logo" 
-        className="w-full h-full object-contain"
-      />
-    </div>
-  </div>
-  <div>
-    <span className="font-extrabold text-xl sm:text-2xl tracking-wider text-white">
-      Lazr<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400">Hub</span>
-    </span>
-    <div className="flex items-center gap-1.5 text-[10px] font-semibold tracking-widest text-purple-300 uppercase">
-      <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
-      Gaming Platform
-    </div>
-  </div>
-</div>
-
-
-
+          <div className="flex items-center gap-3">
+            <div className="relative group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-blue-500 p-[1px] shadow-[0_0_20px_rgba(168,85,247,0.4)]">
+              <div className="w-full h-full bg-[#0b0b0b] rounded-[15px] flex items-center justify-center p-1 group-hover:bg-purple-950/40 transition-colors">
+                <img 
+                  src="https://res.cloudinary.com/oeweu9pq/image/upload/v1785272204/suyzesrdwvpb3yjfphzb.jpg" 
+                  alt="LazrHub Logo" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+            <div>
+              <span className="font-extrabold text-xl sm:text-2xl tracking-wider text-white">
+                Lazr<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400">Hub</span>
+              </span>
+              <div className="flex items-center gap-1.5 text-[10px] font-semibold tracking-widest text-purple-300 uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+                Gaming Platform
+              </div>
+        
         {/* Heading: # Coming Soon */}
         <motion.h1
           initial={{ opacity: 0, y: 15 }}
