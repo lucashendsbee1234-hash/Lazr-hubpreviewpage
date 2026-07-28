@@ -16,7 +16,7 @@ import { FeatureItem } from '../types';
 const FEATURES: FeatureItem[] = [
   {
     id: 'games',
-    title: 'New Games',
+    title: 'A ton of games',
     iconName: 'Gamepad2',
     badge: 'Library Expand',
     description: 'Fresh multiplayer, arcade, and battle arena titles added.',
