@@ -84,9 +84,11 @@ export const NotificationModal: React.FC<NotificationModalProps> = ({ isOpen, on
           ) : (
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 rounded-2xl bg-purple-600/20 border border-purple-500/30 text-purple-300">
-                  <BellRing className="w-6 h-6 text-purple-400 animate-bounce" />
-                </div>
+                <img
+                  src="/lazrhub-logo.jpg"
+                  alt="LazrHub Logo"
+                  className="w-12 h-12 rounded-2xl object-cover border border-purple-400/40 shadow-[0_0_15px_rgba(168,85,247,0.4)] shrink-0"
+                />
                 <div>
                   <h3 className="text-xl font-bold text-white">Get Launch Notified</h3>
                   <p className="text-xs text-slate-400">Be the first to step into LazrHub v2.0</p>

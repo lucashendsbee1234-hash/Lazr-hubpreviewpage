@@ -16,58 +16,58 @@ import { FeatureItem } from '../types';
 const FEATURES: FeatureItem[] = [
   {
     id: 'games',
-    title: 'A ton of games',
+    title: 'Unblocked Arcade Games',
     iconName: 'Gamepad2',
-    badge: 'Library Expand',
-    description: 'Fresh multiplayer, arcade, and battle arena titles added.',
+    badge: 'Launch Title',
+    description: 'Instant browser gaming library packed with multiplayer and arcade titles.',
     color: 'from-purple-500 to-indigo-500',
   },
   {
     id: 'speed',
-    title: 'Faster Website',
+    title: 'Lightning Load Speed',
     iconName: 'Zap',
-    badge: '10x Speed',
-    description: 'Instant page transitions and zero-latency load times.',
+    badge: 'Zero Delay',
+    description: 'Blazing fast load times with smooth 60 FPS gameplay rendering.',
     color: 'from-amber-400 to-orange-500',
   },
   {
     id: 'profiles',
-    title: 'User Profiles',
+    title: 'Player Profiles',
     iconName: 'UserCheck',
-    badge: 'Customization',
-    description: 'Custom avatars, bio cards, rank badges, and match histories.',
+    badge: 'Identity',
+    description: 'Personalized profile cards, custom avatars, and win stats.',
     color: 'from-blue-400 to-cyan-500',
   },
   {
     id: 'coins',
-    title: 'Coins & Rewards',
+    title: 'LazrCoins Rewards',
     iconName: 'Coins',
-    badge: 'Earning System',
-    description: 'Earn LazrCoins by playing and unlock exclusive platform perks.',
+    badge: 'Coin Engine',
+    description: 'Earn LazrCoins by playing and completing launch quests.',
     color: 'from-yellow-400 to-amber-500',
   },
   {
     id: 'achievements',
-    title: 'Achievements',
+    title: 'Global Leaderboards',
     iconName: 'Trophy',
-    badge: 'Unlocks',
-    description: 'Over 100+ unique milestone trophies & battle pass tiers.',
+    badge: 'Competitive',
+    description: 'Climb top rankings, unlock achievement badges and bragging rights.',
     color: 'from-emerald-400 to-teal-500',
   },
   {
     id: 'chat',
-    title: 'Better Chat',
+    title: 'Official Discord Lounge',
     iconName: 'MessageSquareHeart',
-    badge: 'Social Suite',
-    description: 'Voice rooms, live party channels, animated emojis & GIFs.',
-    color: 'from-pink-500 to-rose-500',
+    badge: 'Community',
+    description: 'Direct integration with our active gamer community on Discord.',
+    color: 'from-indigo-500 to-purple-600',
   },
   {
     id: 'performance',
-    title: 'Performance Improvements',
+    title: 'Multi-Device Support',
     iconName: 'Gauge',
-    badge: 'Optimization',
-    description: '60 FPS web canvas rendering and reduced memory footprint.',
+    badge: 'Cross-Platform',
+    description: 'Optimized for seamless performance on desktop, mobile, and Chromebooks.',
     color: 'from-purple-400 to-pink-500',
   },
 ];
@@ -114,15 +114,15 @@ export const FeatureList: React.FC = () => {
             </div>
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center gap-2">
-                ✨ What&apos;s Coming?
+                🚀 LazrHub First Release Highlights
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
-                Sneak peek at the next evolution of LazrHub
+                Here is what is coming in the official v1.0 grand launch
               </p>
             </div>
           </div>
           <span className="px-3 py-1 text-xs font-semibold rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300">
-            LazrHub v2.0 Roadmap
+            LazrHub v1.0 Launch
           </span>
         </div>
 

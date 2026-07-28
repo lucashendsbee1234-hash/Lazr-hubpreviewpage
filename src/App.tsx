@@ -1,23 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, Calendar, Clock, Bell, Rocket, RefreshCw, Volume2, VolumeX } from 'lucide-react';
+import { Calendar, Clock } from 'lucide-react';
 import { ParticleCanvas } from './components/ParticleCanvas';
 import { CountdownCard } from './components/CountdownCard';
 import { FeatureList } from './components/FeatureList';
+import { LiveStateBanner } from './components/LiveStateBanner';
 import { NotificationModal } from './components/NotificationModal';
 import { HeaderNavbar } from './components/HeaderNavbar';
 import { Footer } from './components/Footer';
 import { TimeLeft } from './types';
 import { sfx } from './utils/audio';
-
-// Temporary fallback placeholder component for LiveStateBanner to prevent missing import build errors
-function LiveStateBanner() {
-  return (
-    <div className="p-6 bg-purple-600 rounded-2xl font-bold animate-pulse text-xl">
-      🚀 LazrHub is Live Now!
-    </div>
-  );
-}
 
 export default function App() {
   // Target Launch Date: August 11, 2026 at 6:00 PM (18:00:00) Local Time
@@ -32,17 +24,13 @@ export default function App() {
     return target;
   };
 
-  const [targetDate, setTargetDate] = useState<Date>(getInitialTargetDate);
-  const [isSimulatedLive, setIsSimulatedLive] = useState(false);
+  const [targetDate] = useState<Date>(getInitialTargetDate);
   const [isMuted, setIsMuted] = useState(true);
   const [isNotifyOpen, setIsNotifyOpen] = useState(false);
   const [timeZoneName, setTimeZoneName] = useState<string>('');
 
   // Calculate time remaining
   const calculateTimeLeft = useCallback((): TimeLeft => {
-    if (isSimulatedLive) {
-      return { days: 0, hours: 0, minutes: 0, seconds: 0, totalMs: 0, isExpired: true };
-    }
     const now = new Date().getTime();
     const difference = targetDate.getTime() - now;
 
@@ -63,7 +51,7 @@ export default function App() {
       totalMs: difference,
       isExpired: false,
     };
-  }, [targetDate, isSimulatedLive]);
+  }, [targetDate]);
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
 
@@ -82,10 +70,12 @@ export default function App() {
     const timer = setInterval(() => {
       const updated = calculateTimeLeft();
       setTimeLeft(updated);
+
       if (!isMuted && !updated.isExpired) {
         sfx.playTick();
       }
     }, 1000);
+
     return () => clearInterval(timer);
   }, [calculateTimeLeft, isMuted]);
 
@@ -95,11 +85,6 @@ export default function App() {
     if (!nextMuted) {
       sfx.playClick();
     }
-  };
-
-  const handleToggleSimulateLive = () => {
-    if (!isMuted) sfx.playClick();
-    setIsSimulatedLive((prev) => !prev);
   };
 
   return (
@@ -115,114 +100,118 @@ export default function App() {
       </div>
 
       {/* Header Navigation Bar */}
-      <HeaderNavbar 
-        isMuted={isMuted} 
-        onToggleMute={handleToggleMute} 
-        onOpenNotify={() => setIsNotifyOpen(true)} 
-        isSimulatedLive={isSimulatedLive} 
-        onToggleSimulateLive={handleToggleSimulateLive} 
+      <HeaderNavbar
+        isMuted={isMuted}
+        onToggleMute={handleToggleMute}
+        onOpenNotify={() => setIsNotifyOpen(true)}
       />
 
       {/* Main Content Area */}
       <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 py-8 sm:py-12 text-center max-w-5xl mx-auto w-full">
-        
-        {/* Brand Hero Heading Component Block */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9, y: -20 }} 
-          animate={{ opacity: 1, scale: 1, y: 0 }} 
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} 
-          className="relative mb-6 flex flex-col items-center justify-center w-full"
+        {/* Brand Hero Heading */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, y: -20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="relative mb-5 flex flex-col items-center"
         >
-          {/* Logo Identity Wrapper Box */}
-          <div className="flex items-center gap-3 justify-center mb-4"> 
-            <div className="relative group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-blue-500 p-[1px] shadow-[0_0_20px_rgba(168,85,247,0.4)]"> 
-              <div className="w-full h-full bg-[#0b0b0b] rounded-[15px] flex items-center justify-center p-1 group-hover:bg-purple-950/40 transition-colors"> 
-                <img src="https://res.cloudinary.com/oeweu9pq/image/upload/v1785272204/suyzesrdwvpb3yjfphzb.jpg" alt="LazrHub Logo" className="w-full h-full object-contain" /> 
-              </div> 
-            </div> 
-            <div className="text-left"> 
-              <span className="font-extrabold text-xl sm:text-2xl tracking-wider text-white block leading-none"> 
-                Lazr<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400">Hub</span> 
-              </span> 
-              <div className="flex items-center gap-1.5 text-[10px] font-semibold tracking-widest text-purple-300 uppercase mt-1"> 
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" /> 
-                Gaming Platform 
-              </div> 
+          {/* Subtle ambient glow behind logo */}
+          <div className="absolute -inset-4 bg-gradient-to-r from-purple-600/30 via-indigo-500/20 to-blue-500/30 rounded-full blur-2xl animate-pulse-glow pointer-events-none" />
+
+          {/* LazrHub Brand Pill with Embedded Logo */}
+          <div className="relative inline-flex items-center gap-3.5 px-5 py-2.5 rounded-full glass-panel border border-purple-500/40 shadow-[0_0_30px_rgba(168,85,247,0.3)] hover:border-purple-400/60 transition-all">
+            <img
+              src="/lazrhub-logo.jpg"
+              alt="LazrHub Logo"
+              className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl object-cover border border-purple-400/50 shadow-[0_0_15px_rgba(168,85,247,0.5)]"
+            />
+            <div className="flex items-center gap-1.5">
+              <span className="font-extrabold text-2xl sm:text-3xl tracking-wide text-white">
+                Lazr<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400">Hub</span>
+              </span>
+              <span className="text-xl sm:text-2xl ml-0.5">🚀</span>
             </div>
           </div>
-
-          {/* Heading Title */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 15 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.8, delay: 0.1 }} 
-            className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-purple-200 drop-shadow-[0_4px_25px_rgba(168,85,247,0.35)]"
-          > 
-            Coming Soon 
-          </motion.h1>
-
-          {/* Launch Date Announcement Banner */}
-          <motion.div 
-            initial={{ opacity: 0, y: 15 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.8, delay: 0.2 }} 
-            className="mt-4 sm:mt-6 text-base sm:text-xl text-slate-300 max-w-2xl font-medium space-y-1"
-          > 
-            <p className="text-slate-400">LazrHubs best version releases on</p> 
-            <div className="text-lg sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-indigo-200 to-blue-300 drop-shadow-[0_0_15px_rgba(168,85,247,0.4)] flex items-center justify-center gap-2"> 
-              <Calendar className="w-5 h-5 text-purple-400 inline" /> 
-              <span>August 11 at 6:00 PM</span> 
-            </div> 
-            {timeZoneName && ( 
-              <p className="text-[11px] text-slate-500 uppercase tracking-widest font-mono pt-1"> 
-                {timeZoneName} (Your Local Time) 
-              </p> 
-            )} 
-          </motion.div>
         </motion.div>
 
-        {/* Countdown Timer Grid Display Wrapper */}
-        <div className="w-full mt-8 sm:mt-12"> 
-          <AnimatePresence mode="wait"> 
-            {timeLeft.isExpired ? ( 
-              <LiveStateBanner key="live-banner" /> 
-            ) : ( 
-              <motion.div 
-                key="countdown-timer" 
-                initial={{ opacity: 0, scale: 0.95 }} 
-                animate={{ opacity: 1, scale: 1 }} 
-                exit={{ opacity: 0, scale: 0.95 }} 
-                transition={{ duration: 0.5 }} 
-                className="flex flex-col items-center" 
-              > 
-                {/* 4 Glass Cards Grid Layout */} 
-                <div className="grid grid-cols-4 gap-2 sm:gap-4 md:gap-6 max-w-3xl mx-auto"> 
-                  <CountdownCard value={timeLeft.days} label="Days" delay={0.25} /> 
-                  <CountdownCard value={timeLeft.hours} label="Hours" delay={0.3} /> 
-                  <CountdownCard value={timeLeft.minutes} label="Minutes" delay={0.35} /> 
-                  <CountdownCard value={timeLeft.seconds} label="Seconds" delay={0.4} /> 
-                </div> 
+        {/* Heading: Coming Soon (fixed text clipping for descending 'g') */}
+        <motion.h1
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-purple-200 drop-shadow-[0_4px_25px_rgba(168,85,247,0.35)] pb-3 sm:pb-4 leading-normal sm:leading-tight"
+        >
+          Coming Soon
+        </motion.h1>
 
-                {/* Subtitle bottom banner callout indicator */} 
-                <motion.div 
-                  initial={{ opacity: 0 }} 
-                  animate={{ opacity: 1 }} 
-                  transition={{ delay: 0.6 }} 
-                  className="mt-6 flex items-center justify-center gap-2 text-xs text-purple-300/80 bg-purple-500/10 px-4 py-1.5 rounded-full border border-purple-500/20" 
-                > 
-                  <Clock className="w-3.5 h-3.5 text-purple-400 animate-spin" style={{ animationDuration: '8s' }} /> 
-                  <span>Timer updates live automatically every second</span> 
-                </motion.div> 
-              </motion.div> 
-            )} 
-          </AnimatePresence> 
+        {/* Launch Date Announcement Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-4 sm:mt-6 text-base sm:text-xl text-slate-300 max-w-2xl font-medium space-y-1"
+        >
+          <p className="text-slate-400">The next version of LazrHub launches on</p>
+          <p className="text-lg sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-indigo-200 to-blue-300 drop-shadow-[0_0_15px_rgba(168,85,247,0.4)] flex items-center justify-center gap-2">
+            <Calendar className="w-5 h-5 text-purple-400 inline" />
+            <span>August 11 at 6:00 PM</span>
+          </p>
+          {timeZoneName && (
+            <p className="text-[11px] text-slate-500 uppercase tracking-widest font-mono pt-1">
+              {timeZoneName} (Your Local Time)
+            </p>
+          )}
+        </motion.div>
+
+        {/* Countdown Timer or Live State */}
+        <div className="w-full mt-8 sm:mt-12">
+          <AnimatePresence mode="wait">
+            {timeLeft.isExpired ? (
+              <LiveStateBanner key="live-banner" />
+            ) : (
+              <motion.div
+                key="countdown-timer"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col items-center"
+              >
+                {/* 4 Glass Cards Grid */}
+                <div className="grid grid-cols-4 gap-2 sm:gap-4 md:gap-6 max-w-3xl mx-auto">
+                  <CountdownCard value={timeLeft.days} label="Days" delay={0.25} />
+                  <CountdownCard value={timeLeft.hours} label="Hours" delay={0.3} />
+                  <CountdownCard value={timeLeft.minutes} label="Minutes" delay={0.35} />
+                  <CountdownCard value={timeLeft.seconds} label="Seconds" delay={0.4} />
+                </div>
+
+                {/* Subtitle callout below timer */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                  className="mt-6 flex items-center justify-center gap-2 text-xs text-purple-300/80 bg-purple-500/10 px-4 py-1.5 rounded-full border border-purple-500/20"
+                >
+                  <Clock className="w-3.5 h-3.5 text-purple-400 animate-spin" style={{ animationDuration: '8s' }} />
+                  <span>Timer updates live automatically every second</span>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
-        {/* Feature List Component section items layout */}
-        <FeatureList /> 
+        {/* Feature List Component ("✨ What's Coming?") */}
+        <FeatureList />
       </main>
 
       {/* Footer Component */}
       <Footer />
-{/* VIP Early Access Modal */} 
-<NotificationModal isOpen={isNotifyOpen} onClose={() => setIsNotifyOpen(false)} /> </div> ); }
+
+      {/* VIP Early Access Modal */}
+      <NotificationModal
+        isOpen={isNotifyOpen}
+        onClose={() => setIsNotifyOpen(false)}
+      />
+    </div>
+  );
+}
