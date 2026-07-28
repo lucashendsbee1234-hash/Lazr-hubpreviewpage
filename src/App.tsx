@@ -224,5 +224,5 @@ export default function App() {
 
       {/* Footer Component */}
       <Footer />
-{/* VIP Early Access Notification Signup Modal box */}
-      <NotificationModal isOpen={isNotifyOpen} onClose={() => setIsNotifyOpen(false)} />);}
+{/* VIP Early Access Modal */} 
+<NotificationModal isOpen={isNotifyOpen} onClose={() => setIsNotifyOpen(false)} /> </div> ); }
