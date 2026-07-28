@@ -38,25 +38,7 @@ export const HeaderNavbar: React.FC<HeaderNavbarProps> = ({
 
       {/* Right Controls */}
       <div className="flex items-center gap-2 sm:gap-3">
-        {/* Simulator Toggle Button */}
-        <button
-          onClick={onToggleSimulateLive}
-          title={isSimulatedLive ? "Switch to Countdown Mode" : "Preview Live Launch Mode"}
-          className={`px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-semibold border transition-all flex items-center gap-1.5 cursor-pointer ${
-            isSimulatedLive
-              ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40 shadow-[0_0_15px_rgba(16,185,129,0.3)]'
-              : 'bg-white/5 hover:bg-white/10 text-slate-300 border-white/10 hover:border-purple-400/40'
-          }`}
-        >
-          <Sparkles className="w-3.5 h-3.5 text-purple-400" />
-          <span className="hidden sm:inline">
-            {isSimulatedLive ? 'Viewing LIVE Mode' : 'Preview LIVE State'}
-          </span>
-          <span className="sm:hidden">
-            {isSimulatedLive ? 'LIVE' : 'Preview'}
-          </span>
-        </button>
-
+       
         {/* Audio Mute Button */}
         <button
           onClick={onToggleMute}
