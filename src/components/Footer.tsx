@@ -45,7 +45,7 @@ export const Footer: React.FC = () => {
 
       {/* Main Footer Text */}
       <p className="text-sm sm:text-base font-medium text-slate-300 flex items-center justify-center gap-1.5">
-        Made with <Heart className="w-4 h-4 text-rose-500 fill-rose-500 animate-pulse inline" /> by the LazrHub Team
+        Made with <Heart className="w-4 h-4 text-rose-500 fill-rose-500 animate-pulse inline" /> by the LazrHub Creator
       </p>
 
       {/* Copyright */}
